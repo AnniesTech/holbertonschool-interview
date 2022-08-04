@@ -1,14 +1,10 @@
+#!/usr/bin/python3
 def canUnlockAll(boxes):
-    newlist = []
-    k = len(boxes)
-    for i in boxes:
-        if len(i) == 0 and i is not boxes[k-1]:
-            return False
-        for j in i:
-            newlist.append(j)
-    print(newlist)
-    for index, keys in enumerate(boxes):
-        if index in newlist or index < k-1:
-            return True
-        else:
-            return False
+    newlist = [0]
+    for i in newlist:
+        for box in boxes[i]:
+            if box < len(boxes) and box not in newlist:
+                newlist.append(box)
+    if len(newlist) == len(boxes):
+        return True
+    return False
